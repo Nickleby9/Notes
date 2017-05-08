@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public void save(String id, String data) {
         SharedPreferences.Editor editor = prefs.edit();
-        editor.putString("Note " + counter, etNote.getText().toString());
+        editor.putString(id, data);
         editor.apply();
     }
 
@@ -112,12 +112,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onTextChanged(CharSequence s, int start, int before, int count) {
-        save("Note " + counter, etNote.getText().toString());
+
     }
 
     @Override
     public void afterTextChanged(Editable s) {
-
+        save("Note " + pageCounter, etNote.getText().toString());
     }
 
 }
